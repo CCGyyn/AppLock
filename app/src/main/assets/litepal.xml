@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="appLock" />
+    <version value="1" />
+    <list>
+        <mapping class="com.miki.applock.bean.LockInfo" />
+        <mapping class="com.miki.applock.bean.LockSwitch" />
+    </list>
+
+    <storage value="external" />
+</litepal>
