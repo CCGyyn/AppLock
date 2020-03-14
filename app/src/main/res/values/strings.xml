@@ -20,4 +20,7 @@
     <string name="lock_pattern_confirmed_header"></string>
     <string name="lock_tip_create_pwd">请绘制图案</string>
     <string name="lock_tip_change_pwd">请修改图案</string>
+    <string name="unlock_tip_self">身份确认</string>
+    <string name="sys_app_title">系统应用(%d)</string>
+    <string name="user_app_title">第三方应用(%d)</string>
 </resources>

@@ -108,8 +108,8 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
         }
 
         titles = new ArrayList<>();
-        titles.add("系统应用" + "(" + sysAppNum + ")");
-        titles.add("第三方应用" + "(" + userAppNum + ")");
+        titles.add(getResources().getString(R.string.sys_app_title, sysAppNum));
+        titles.add(getResources().getString(R.string.user_app_title, userAppNum));
 
         SysAppFragment sysAppFragment = SysAppFragment.newInstance(list);
         UserAppFragment userAppFragment = UserAppFragment.newInstance(list);

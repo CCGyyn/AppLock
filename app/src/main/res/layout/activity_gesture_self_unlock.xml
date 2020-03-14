@@ -20,7 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:text="身份确认"
+            android:text="@string/unlock_tip_self"
             android:textColor="@color/white"
             android:textSize="25sp"/>
     </RelativeLayout>
