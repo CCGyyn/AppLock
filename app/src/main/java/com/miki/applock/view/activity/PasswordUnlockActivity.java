@@ -86,6 +86,7 @@ public class PasswordUnlockActivity extends BaseActivity implements UnlockContra
         Intent goBack = packageManager.getLaunchIntentForPackage(pkg);
         startActivity(goBack);
         finishAffinity();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override

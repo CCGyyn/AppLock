@@ -1,12 +1,11 @@
 package com.miki.applock.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.miki.applock.R;
 import com.miki.applock.base.BaseActivity;
 import com.miki.applock.contract.SplashContract;
 import com.miki.applock.p.SplashPresenter;
+import com.miki.applock.utils.CommonUtil;
 
 public class SplashActivity extends BaseActivity implements SplashContract.View {
 
@@ -14,7 +13,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_splash;
+        return 0;
     }
 
     @Override
@@ -35,11 +34,11 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
 
     @Override
     public void gotoGestureSelf() {
-        startActivity(new Intent(this, GestureSelfUnlockActivity.class));
+        CommonUtil.startActivityWithAnimAfterFinish(this, GestureSelfUnlockActivity.class);
     }
 
     @Override
     public void gotoMain() {
-        startActivity(new Intent(this, MainActivity.class));
+        CommonUtil.startActivityWithAnimAfterFinish(this, MainActivity.class);
     }
 }

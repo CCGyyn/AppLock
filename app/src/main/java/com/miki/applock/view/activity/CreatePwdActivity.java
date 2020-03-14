@@ -3,7 +3,6 @@ package com.miki.applock.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.miki.applock.R;
@@ -12,6 +11,7 @@ import com.miki.applock.base.BaseActivity;
 import com.miki.applock.bean.LockStage;
 import com.miki.applock.contract.GestureCreateContract;
 import com.miki.applock.p.GestureCreatePresenter;
+import com.miki.applock.utils.CommonUtil;
 import com.miki.applock.utils.LockPatternUtils;
 import com.miki.applock.view.widget.LockPatternView;
 import com.miki.applock.view.widget.LockPatternViewPattern;
@@ -29,7 +29,6 @@ public class CreatePwdActivity extends BaseActivity implements GestureCreateCont
     private LockPatternUtils mLockPatternUtils;
     private LockPatternViewPattern mPatternViewPattern;
     private GestureCreateContract.Presenter mGestureCreatePresenter;
-    private RelativeLayout mTopLayout;
 
     @Override
     public int getLayoutId() {
@@ -41,7 +40,6 @@ public class CreatePwdActivity extends BaseActivity implements GestureCreateCont
         mLockPatternView = (LockPatternView) findViewById(R.id.lock_pattern_view);
         mLockTip = (TextView) findViewById(R.id.lock_tip);
         mBtnReset = (TextView) findViewById(R.id.btn_reset);
-        mTopLayout = (RelativeLayout) findViewById(R.id.top_layout);
 //        mTopLayout.setPadding(0, SystemBarHelper.getStatusBarHeight(this),0,0);
     }
 
@@ -163,13 +161,7 @@ public class CreatePwdActivity extends BaseActivity implements GestureCreateCont
     public void ChoiceConfirmed() {
         mLockPatternUtils.saveLockPattern(mChosenPattern); //保存密码
         clearPattern();
-        gotoLockMainActivity();
-    }
-
-    private void gotoLockMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        CommonUtil.startActivityWithAnimAfterFinish(this, MainActivity.class);
     }
 
     /**

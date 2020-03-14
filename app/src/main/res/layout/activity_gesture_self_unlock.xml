@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/transparent"
     android:clipToPadding="false"
     android:orientation="vertical"
     tools:context=".view.activity.GestureSelfUnlockActivity">
@@ -12,49 +12,17 @@
     <RelativeLayout
         android:id="@+id/top_layout"
         android:layout_width="match_parent"
-        android:layout_height="226dp"
-        android:background="#2DAC7C">
-
-        <TextureView
-            android:id="@+id/texture_view"
-            android:layout_width="1dp"
-            android:layout_height="1dp"/>
-
-        <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:padding="10dp"
-            android:src="@drawable/ic_back_2"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/btn_back"
-            android:gravity="center"
-            android:text="应用锁"
-            android:textColor="@color/white"
-            android:textSize="14sp"/>
-
-        <ImageView
-            android:id="@+id/lock_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_lock"/>
-
+        android:layout_height="226dp">
         <TextView
             android:id="@+id/lock_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/lock_icon"
             android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
             android:gravity="center"
             android:text="身份确认"
             android:textColor="@color/white"
-            android:textSize="14sp"/>
+            android:textSize="25sp"/>
     </RelativeLayout>
 
     <com.miki.applock.view.widget.LockPatternView

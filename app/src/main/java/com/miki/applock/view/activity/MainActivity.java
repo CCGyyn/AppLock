@@ -131,10 +131,8 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
 
     @Override
     public void gotoCreatePwd() {
-        Intent intent = new Intent(this, CreatePwdActivity.class);
-        intent.putExtra(AppConstants.LOCK_FROM, AppConstants.LOCK_CREATE_PWD);
-        startActivity(intent);
-        finish();
+        CommonUtil.startActivityWithAnimAfterFinish(this, CreatePwdActivity.class,
+                AppConstants.LOCK_FROM, AppConstants.LOCK_CREATE_PWD);
     }
 
     @Override
@@ -166,9 +164,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Vie
                 break;
             }
             case R.id.tv_change_pwd: {
-                Intent intent = new Intent(this, CreatePwdActivity.class);
-                intent.putExtra(AppConstants.LOCK_FROM, AppConstants.LOCK_CHANGE_PWD);
-                startActivity(intent);
+                CommonUtil.startActivityWithAnim(this, CreatePwdActivity.class, AppConstants.LOCK_FROM, AppConstants.LOCK_CHANGE_PWD);
             }
             default:
                 break;

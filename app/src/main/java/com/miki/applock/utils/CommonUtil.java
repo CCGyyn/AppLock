@@ -1,5 +1,6 @@
 package com.miki.applock.utils;
 
+import android.app.Activity;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
@@ -55,5 +56,31 @@ public class CommonUtil {
 
     public static boolean isStringEmpty(String s) {
         return (s == null || s.length() <= 0);
+    }
+
+    public static void startActivityWithAnimAfterFinish(Activity packageContext, Class<?> cls) {
+        packageContext.startActivity(new Intent(packageContext, cls));
+        packageContext.finish();
+        packageContext.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public static void startActivityWithAnimAfterFinish(Activity packageContext, Class<?> cls, String tag, String extra) {
+        Intent intent = new Intent(packageContext, cls);
+        intent.putExtra(tag, extra);
+        packageContext.startActivity(intent);
+        packageContext.finish();
+        packageContext.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public static void startActivityWithAnim(Activity packageContext, Class<?> cls) {
+        packageContext.startActivity(new Intent(packageContext, cls));
+        packageContext.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public static void startActivityWithAnim(Activity packageContext, Class<?> cls, String tag, String extra) {
+        Intent intent = new Intent(packageContext, cls);
+        intent.putExtra(tag, extra);
+        packageContext.startActivity(intent);
+        packageContext.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }
