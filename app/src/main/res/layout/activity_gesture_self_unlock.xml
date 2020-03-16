@@ -23,6 +23,14 @@
             android:text="@string/unlock_tip_self"
             android:textColor="@color/white"
             android:textSize="25sp"/>
+        <TextView
+            android:id="@+id/lock_tip_self"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/lock_tip"
+            android:layout_marginTop="10dp"
+            />
     </RelativeLayout>
 
     <com.miki.applock.view.widget.LockPatternView

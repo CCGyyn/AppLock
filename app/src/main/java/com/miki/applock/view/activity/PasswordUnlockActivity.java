@@ -3,10 +3,12 @@ package com.miki.applock.view.activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,7 +28,6 @@ import androidx.annotation.RequiresApi;
  */
 public class PasswordUnlockActivity extends BaseActivity implements UnlockContract.View {
 
-    private Button btn_1;
     private PackageManager packageManager;
     private String pkg;
     private long id;
@@ -63,21 +64,12 @@ public class PasswordUnlockActivity extends BaseActivity implements UnlockContra
         id = Long.parseLong(s[1]);
         packageManager = getPackageManager();
         presenter.loadUnlockAppInfo(id);
+        unLockTip.setText(getResources().getString(R.string.password_gestrue_tips));
     }
 
     @Override
     protected void initAction() {
         initLockPatternView();
-/*        btn_1.setOnClickListener((v) -> {
-            String oldPass = ((EditText) findViewById(R.id.passwordTextEdit)).getText().toString();
-
-            if (oldPass.contentEquals("1234")) {
-                presenter.updateLockInfo(id);
-                return ;
-            } else {
-                Toast.makeText(getApplicationContext(), "Password is wrong!", Toast.LENGTH_SHORT).show();
-            }
-        });*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -111,6 +103,12 @@ public class PasswordUnlockActivity extends BaseActivity implements UnlockContra
                 mLockPatternView.setDisplayMode(LockPatternView.DisplayMode.Correct);
                 presenter.updateLockInfo(id);
             } else {
+                unLockTip.setText(getResources().getString(R.string.password_error_count));
+                unLockTip.setTextColor(Color.RED);
+                TranslateAnimation translateAnimation = new TranslateAnimation(-5, 5, 0, 0);
+                translateAnimation.setDuration(100);
+                translateAnimation.setRepeatCount(Animation.REVERSE);
+                unLockTip.startAnimation(translateAnimation);
                 mLockPatternView.setDisplayMode(LockPatternView.DisplayMode.Wrong);
                 mLockPatternView.postDelayed(mClearPatternRunnable, 500);
             }

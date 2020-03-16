@@ -1,7 +1,10 @@
 package com.miki.applock.view.activity;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.TextView;
 
 import com.miki.applock.R;
 import com.miki.applock.base.BaseActivity;
@@ -15,6 +18,7 @@ public class GestureSelfUnlockActivity extends BaseActivity {
     private LockPatternView mLockPatternView;
     private LockPatternUtils mLockPatternUtils;
     private LockPatternViewPattern mPatternViewPattern;
+    private TextView unLockTip;
     private int mFailedPatternAttemptsSinceLastTimeout = 0;
 
     @Override
@@ -25,6 +29,7 @@ public class GestureSelfUnlockActivity extends BaseActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         mLockPatternView = (LockPatternView) findViewById(R.id.unlock_lock_view);
+        unLockTip = (TextView)findViewById(R.id.lock_tip_self);
     }
 
     @Override
@@ -48,6 +53,12 @@ public class GestureSelfUnlockActivity extends BaseActivity {
                 mLockPatternView.setDisplayMode(LockPatternView.DisplayMode.Correct);
                 CommonUtil.startActivityWithAnimAfterFinish(this, MainActivity.class);
             } else {
+                unLockTip.setText(getResources().getString(R.string.password_error_count));
+                unLockTip.setTextColor(Color.RED);
+                TranslateAnimation translateAnimation = new TranslateAnimation(-5, 5, 0, 0);
+                translateAnimation.setDuration(100);
+                translateAnimation.setRepeatCount(Animation.REVERSE);
+                unLockTip.startAnimation(translateAnimation);
                 mLockPatternView.setDisplayMode(LockPatternView.DisplayMode.Wrong);
                 /*if (pattern.size() >= LockPatternUtils.MIN_PATTERN_REGISTER_FAIL) {
                     mFailedPatternAttemptsSinceLastTimeout++;
