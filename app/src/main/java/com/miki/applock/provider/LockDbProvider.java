@@ -70,7 +70,7 @@ public class LockDbProvider extends ContentProvider {
         switch (uriMatcher.match(uri)) {
             case LOCK_INFO: {
                 // 全部重新上锁
-                return appLockManager.updateAllStatus(true);
+                return appLockManager.updateAllStatus(values);
             }
             default:
                 break;

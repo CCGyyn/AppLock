@@ -59,4 +59,8 @@ public class AppLockManager {
         return LitePal.updateAll(LockInfo.class, values);
     }
 
+    public synchronized int updateAllStatus(ContentValues values) {
+        return LitePal.updateAll(LockInfo.class, values);
+    }
+
 }
