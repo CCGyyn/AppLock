@@ -69,7 +69,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             info.setLocked(false);
             appLockManager.deleteLockInfoByPkg(info.getPackageName());
         }
-        notifyItemChanged(position);
+//        notifyItemChanged(position);
     }
 
     @Override
