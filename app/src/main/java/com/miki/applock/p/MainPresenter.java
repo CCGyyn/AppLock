@@ -66,7 +66,6 @@ public class MainPresenter implements MainContract.Presenter{
         @Override
         protected List<AppInfo> doInBackground(Void... voids) {
 
-            String currentPkg = mContext.getPackageName();
             List<AppInfo> list = new ArrayList<>();
 
             // 获取手机上全部应用
@@ -75,9 +74,6 @@ public class MainPresenter implements MainContract.Presenter{
             List<ResolveInfo> resolveInfos = mPackageManager.queryIntentActivities(intent, 0);
             for (ResolveInfo resolveInfo : resolveInfos) {
                 String packageName = resolveInfo.activityInfo.packageName;
-                if(currentPkg.equals(packageName)) {
-                    continue;
-                }
                 ApplicationInfo applicationInfo = null;
                 String appName = null;
                 try {

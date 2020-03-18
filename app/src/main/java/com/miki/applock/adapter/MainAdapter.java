@@ -48,7 +48,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public void onBindViewHolder(final MainViewHolder holder, final int position) {
         final AppInfo appinfo = appInfos.get(position);
         initData(holder.mAppName, holder.mAppSwitch, holder.mAppIcon, appinfo);
-        holder.mAppSwitch.setOnClickListener((v) -> changeItemLockStatus(holder.mAppSwitch, appinfo, position));
+        holder.mAppSwitch.setOnClickListener((v) -> changeItemLockStatus(holder.mAppSwitch, appinfo));
     }
 
     /**
@@ -61,7 +61,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         mAppIcon.setImageDrawable(packageManager.getApplicationIcon(applicationInfo));
     }
 
-    public void changeItemLockStatus(CheckBox checkBox, AppInfo info, int position) {
+    public void changeItemLockStatus(CheckBox checkBox, AppInfo info) {
         if (checkBox.isChecked()) {
             info.setLocked(true);
             appLockManager.insertLockInfo(info.getPackageName());
@@ -69,7 +69,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             info.setLocked(false);
             appLockManager.deleteLockInfoByPkg(info.getPackageName());
         }
-//        notifyItemChanged(position);
     }
 
     @Override
