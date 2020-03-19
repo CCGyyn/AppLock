@@ -53,6 +53,10 @@ public class AppLockManager {
         LitePal.update(LockInfo.class, values, id);
     }
 
+    public synchronized int updateLockInfoById(long id, ContentValues values) {
+        return LitePal.update(LockInfo.class, values, id);
+    }
+
     public synchronized int updateAllStatus(boolean lock) {
         ContentValues values = new ContentValues();
         values.put("isLock", lock ? 1:0);

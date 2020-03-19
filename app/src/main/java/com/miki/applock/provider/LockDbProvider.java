@@ -69,6 +69,10 @@ public class LockDbProvider extends ContentProvider {
                       String[] selectionArgs) {
         switch (uriMatcher.match(uri)) {
             case LOCK_INFO: {
+                if(selection != null && selectionArgs != null) {
+                    long id = Long.valueOf(selectionArgs[0]);
+                    return appLockManager.updateLockInfoById(id, values);
+                }
                 // 全部重新上锁
                 return appLockManager.updateAllStatus(values);
             }
