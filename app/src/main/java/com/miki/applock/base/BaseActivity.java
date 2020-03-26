@@ -1,4 +1,5 @@
 package com.miki.applock.base;
+
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -10,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * @author：cai_gp on 2020/3/9
  */
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

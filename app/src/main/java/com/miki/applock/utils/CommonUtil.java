@@ -12,6 +12,8 @@ import android.provider.Settings;
 
 import java.util.List;
 
+import androidx.core.hardware.fingerprint.FingerprintManagerCompat;
+
 /**
  * @author：cai_gp on 2020/3/10
  */
@@ -82,5 +84,14 @@ public class CommonUtil {
         intent.putExtra(tag, extra);
         packageContext.startActivity(intent);
         packageContext.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public static boolean hasFinger(Activity activity) {
+        FingerprintManagerCompat fingerprintManagerCompat = FingerprintManagerCompat.from(activity);
+        if (!fingerprintManagerCompat.isHardwareDetected()
+                || !fingerprintManagerCompat.hasEnrolledFingerprints()) {
+            return false;
+        }
+        return true;
     }
 }

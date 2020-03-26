@@ -39,5 +39,11 @@
         android:layout_height="290dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"/>
-
+    <ViewStub
+        android:id="@+id/finger_self_view"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/fingerprint"
+        />
 </LinearLayout>

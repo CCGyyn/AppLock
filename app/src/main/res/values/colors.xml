@@ -8,5 +8,5 @@
     <color name="bg_white_normal">#ffffff</color>
     <color name="bg_white_selected">#f3f3f3</color>
     <color name="line_color">#eaeaea</color>
-    <color name="transparent">#e0000000</color>
+    <color name="transparent">#ff000000</color>
 </resources>
