@@ -123,7 +123,7 @@ public class GestureCreatePresenter implements GestureCreateContract.Presenter {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            lockSwitchManager = new LockSwitchManager();
+            lockSwitchManager = new LockSwitchManager(mContext);
             List<LockSwitch> list = lockSwitchManager.queryAll();
             if(list.size() != 0) {
                 return null;

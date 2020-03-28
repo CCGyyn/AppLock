@@ -28,8 +28,6 @@ import com.miki.applock.utils.LockPatternUtils;
 import com.miki.applock.view.widget.LockPatternView;
 import com.miki.applock.view.widget.LockPatternViewPattern;
 
-import org.litepal.LitePal;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
@@ -66,7 +64,6 @@ public class PasswordUnlockActivity extends Activity implements UnlockContract.V
         initViews(savedInstanceState);
         initData();
         initAction();
-        LitePal.getDatabase();
     }
 
     public int getLayoutId() {

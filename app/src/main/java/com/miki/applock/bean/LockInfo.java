@@ -1,11 +1,9 @@
 package com.miki.applock.bean;
 
-import org.litepal.crud.LitePalSupport;
-
 /**
  * @author：cai_gp on 2020/3/10
  */
-public class LockInfo extends LitePalSupport{
+public class LockInfo{
 
     private long id;
     private String packageName;

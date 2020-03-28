@@ -1,14 +1,20 @@
 package com.miki.applock.bean;
 
-import org.litepal.crud.LitePalSupport;
-
 /**
  * @author：cai_gp on 2020/3/11
  */
-public class LockSwitch extends LitePalSupport {
+public class LockSwitch{
 
     private long id;
     private boolean lockstitch;
+
+    public LockSwitch() {
+    }
+
+    public LockSwitch(long id, boolean lockstitch) {
+        this.id = id;
+        this.lockstitch = lockstitch;
+    }
 
     public long getId() {
         return id;

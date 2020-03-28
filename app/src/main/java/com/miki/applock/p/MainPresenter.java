@@ -40,7 +40,7 @@ public class MainPresenter implements MainContract.Presenter{
         this.mView = mView;
         this.mContext = mContext;
         mPackageManager = mContext.getPackageManager();
-        appLockManager = new AppLockManager();
+        appLockManager = new AppLockManager(mContext);
     }
 
     @Override
@@ -138,7 +138,7 @@ public class MainPresenter implements MainContract.Presenter{
         @Override
         protected Integer doInBackground(Boolean... booleans) {
             lockStatus = booleans[0];
-            lockSwitchManager = new LockSwitchManager();
+            lockSwitchManager = new LockSwitchManager(mContext);
             List<LockSwitch> lockSwitchList = lockSwitchManager.queryAll();
             if(lockSwitchList.size() != 0) {
                 lockSwitchManager.updateStatus(lockStatus);
@@ -167,7 +167,7 @@ public class MainPresenter implements MainContract.Presenter{
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-            lockSwitchManager = new LockSwitchManager();
+            lockSwitchManager = new LockSwitchManager(mContext);
             List<LockSwitch> list = lockSwitchManager.queryAll();
             if(list.size() != 0) {
                 return list.get(list.size() - 1).isLockstitch();

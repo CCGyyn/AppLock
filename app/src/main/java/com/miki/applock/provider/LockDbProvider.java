@@ -38,8 +38,8 @@ public class LockDbProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        appLockManager = new AppLockManager();
-        lockSwitchManager = new LockSwitchManager();
+        appLockManager = new AppLockManager(getContext());
+        lockSwitchManager = new LockSwitchManager(getContext());
         return false;
     }
 

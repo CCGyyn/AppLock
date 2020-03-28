@@ -48,7 +48,7 @@ public class UnlockPresenter implements UnlockContract.Presenter {
 
         @Override
         protected Integer doInBackground(Void... voids) {
-            appLockManager = new AppLockManager();
+            appLockManager = new AppLockManager(mContext);
             appLockManager.updateLockInfoById(id, false);
             return 0;
         }
@@ -65,7 +65,7 @@ public class UnlockPresenter implements UnlockContract.Presenter {
         @Override
         protected ApplicationInfo doInBackground(Long... longs) {
             long id = longs[0];
-            appLockManager = new AppLockManager();
+            appLockManager = new AppLockManager(mContext);
             LockInfo lockInfo = appLockManager.queryById(id);
             ApplicationInfo applicationInfo = null;
             try {

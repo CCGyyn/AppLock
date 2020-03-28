@@ -1,5 +1,6 @@
 package com.miki.applock.p;
 
+import android.content.Context;
 import android.os.AsyncTask;
 
 import com.miki.applock.bean.LockSwitch;
@@ -16,9 +17,11 @@ public class SplashPresenter implements SplashContract.Presenter {
     private SplashContract.View mView;
     private LockSwitchManager lockSwitchManager;
     private CheckLockTask checkLockTask;
+    private Context mContext;
 
-    public SplashPresenter(SplashContract.View mView) {
+    public SplashPresenter(SplashContract.View mView, Context context) {
         this.mView = mView;
+        this.mContext = context;
     }
 
     @Override
@@ -31,7 +34,7 @@ public class SplashPresenter implements SplashContract.Presenter {
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-            lockSwitchManager = new LockSwitchManager();
+            lockSwitchManager = new LockSwitchManager(mContext);
             List<LockSwitch> lockSwitchList = lockSwitchManager.queryAll();
             boolean result = (lockSwitchList.size() != 0 && lockSwitchList.get(lockSwitchList.size() - 1).isLockstitch());
             return result;

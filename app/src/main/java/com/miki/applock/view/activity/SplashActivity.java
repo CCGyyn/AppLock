@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
 
     @Override
     protected void initData() {
-        presenter = new SplashPresenter(this);
+        presenter = new SplashPresenter(this, this);
         presenter.isLock();
     }
 

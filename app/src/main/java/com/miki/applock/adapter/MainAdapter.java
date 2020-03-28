@@ -29,7 +29,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     public MainAdapter(Context mContext) {
         this.mContext = mContext;
         this.packageManager = mContext.getPackageManager();
-        this.appLockManager = new AppLockManager();
+        this.appLockManager = new AppLockManager(mContext);
     }
 
     public void setAppInfos(List<AppInfo> appInfos) {

@@ -3,8 +3,6 @@ package com.miki.applock.base;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import org.litepal.LitePal;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
 
-        LitePal.getDatabase();
     }
 
     public abstract int getLayoutId();
