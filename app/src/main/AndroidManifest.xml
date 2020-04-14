@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.miki.applock">
+    package="com.miki.settings.applock">
 
     <application
         android:allowBackup="true"
@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.activity.GestureSelfUnlockActivity"></activity>
+        <activity android:name="com.miki.settings.applock.view.activity.GestureSelfUnlockActivity"></activity>
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name="com.miki.settings.applock.view.activity.SplashActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.CreatePwdActivity" />
+        <activity android:name="com.miki.settings.applock.view.activity.CreatePwdActivity" />
         <activity
             android:theme="@style/dialog"
-            android:name=".view.activity.PasswordUnlockActivity"
+            android:name="com.miki.settings.applock.view.activity.PasswordUnlockActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.miki.password_unlock" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.MainActivity"></activity>
+        <activity android:name="com.miki.settings.applock.view.activity.MainActivity"></activity>
 
         <provider
-            android:name=".provider.LockDbProvider"
-            android:authorities="com.miki.applock.provider"
+            android:name="com.miki.settings.applock.provider.LockDbProvider"
+            android:authorities="com.miki.settings.applock.provider"
             android:enabled="true"
             android:exported="true" />
     </application>

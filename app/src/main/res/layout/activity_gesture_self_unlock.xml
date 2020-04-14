@@ -33,7 +33,7 @@
             />
     </RelativeLayout>
 
-    <com.miki.applock.view.widget.LockPatternView
+    <com.miki.settings.applock.view.widget.LockPatternView
         android:id="@+id/unlock_lock_view"
         android:layout_width="290dp"
         android:layout_height="290dp"
